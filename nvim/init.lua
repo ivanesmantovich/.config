@@ -89,7 +89,6 @@ vim.call('plug#end')
 -- Vanilla statusline
 vim.cmd([[
     function! GitBranch()
-      echo "refresh"
       if exists('b:gitsigns_head')
         return ' ' . b:gitsigns_head . ' '
       endif
