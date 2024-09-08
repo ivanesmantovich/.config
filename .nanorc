@@ -1,0 +1,34 @@
+unset linenumbers
+unset autoindent
+unset backup
+unset breaklonglines
+unset casesensitive
+
+set mouse
+set boldtext
+set minibar
+set positionlog
+set smarthome
+set tabstospaces
+set tabsize 4
+set zap
+
+bind ^x cut all
+bind ^c copy all
+bind ^v paste all
+
+bind M-u undo all
+bind M-r redo all
+
+bind M-d chopwordright all
+
+bind M-< firstline all
+bind M-> lastline all
+
+bind M-m findbracket all
+
+bind M-p beginpara all
+bind M-n endpara all
+
+bind M-c cancel all
+bind M-e exit all
