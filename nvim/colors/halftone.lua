@@ -90,4 +90,6 @@ vim.cmd([[
   highlight DiagnosticInfo guibg=NONE guifg=#007AFF
   highlight DiagnosticOk guibg=NONE guifg=#B3F261
   highlight DiagnosticHint guibg=NONE guifg=#5E5E5E
+
+  highlight DevIconDefault ctermfg=black guifg=#000000
 ]])

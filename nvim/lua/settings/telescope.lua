@@ -11,6 +11,7 @@ require('telescope').setup({
     }
   },
   defaults = {
+    color_devicons = false,
     vimgrep_arguments = table.insert(conf.vimgrep_arguments, '--fixed-strings'), -- Disable regexp
     layout_strategy = 'vertical',
     layout_config = { height = 0.98, width = 0.95 },

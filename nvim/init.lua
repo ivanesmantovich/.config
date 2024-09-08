@@ -5,8 +5,7 @@ local vim = vim -- to avoid undefined vim warning all down the file
 vim.o.termguicolors = true
 vim.o.guicursor = '' -- Cursor is always block
 vim.o.scrolloff = 8
-vim.o.winbar = "%t" -- Show filename at the top of the buffers (https://www.youtube.com/watch?v=LKW_SUuc
-vim.o.statusline = '%#Comment#%{FugitiveHead()}%0* %m%=line %l out of %L, column %c' -- %t is filename, 
+vim.o.winbar = "%t" -- Show filename at the top of the buffers (https://www.youtube.com/watch?v=LKW_SUuc)
 vim.o.laststatus = 3 -- Global statusline
 vim.o.updatetime = 100
 vim.o.timeoutlen = 500 -- Time to wait for keybinds to complete
@@ -87,9 +86,26 @@ Plug('NvChad/nvim-colorizer.lua', {['frozen'] = true})
 vim.call('plug#end')
 
 
+-- Vanilla statusline
+vim.cmd([[
+    function! GitBranch()
+      echo "refresh"
+      if exists('b:gitsigns_head')
+        return ' ' . b:gitsigns_head . ' '
+      endif
+      return ''
+    endfunction
+
+    set statusline=%#Comment#%{GitBranch()}
+    set statusline+=%m
+    set statusline+=%=
+    set statusline+=line\ %l\ out\ of\ %L,\ column\ %c%0*
+]])
+
+
 -- Small plugin setups
 -- Icons
-require('nvim-web-devicons').setup({})
+require('nvim-web-devicons').setup({color_icons = false})
 -- Colorizer
 require("colorizer").setup({})
 -- GitSigns
@@ -102,6 +118,7 @@ vim.g.lazygit_floating_window_border_chars = {'┌', '─', '┐', '│', '┘',
 require('settings.treesitter')
 require('settings.lsp')
 require('settings.telescope')
+require('settings.formatting')
 require('settings.shortcuts')
 
 
